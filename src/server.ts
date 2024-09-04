@@ -1,4 +1,10 @@
 import express from "express";
-const app = express();
+import categoriesRoutes from "./routes/categories.routes";
 
-app.listen(3333);
+const app = express();
+const PORT = 3333;
+
+app.use(express.json());
+app.use("/categories", categoriesRoutes);
+
+app.listen(PORT);
