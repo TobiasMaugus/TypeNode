@@ -3,9 +3,17 @@ import { ICreateEspecificationDTO, IEspecificationsRepository } from "../Interfa
 
 class EspecificationsRepository implements IEspecificationsRepository{
     private especifications: Especification[];
+    private static INSTANCE: EspecificationsRepository;
 
-    constructor(){
+    private constructor(){
         this.especifications=[]
+    }
+
+    public static getInstance():EspecificationsRepository{
+        if(!EspecificationsRepository.INSTANCE){
+            EspecificationsRepository.INSTANCE = new EspecificationsRepository();
+        }
+        return EspecificationsRepository.INSTANCE;
     }
 
     create({name, description}:ICreateEspecificationDTO){

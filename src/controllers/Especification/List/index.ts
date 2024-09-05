@@ -2,7 +2,7 @@ import EspecificationsRepository from "../../../repositories/EspecificationsRepo
 import ListEspecificationService from "../../../services/Especification/ListEspecificationService";
 import ListEspecificationController from "./ListEspecificationController";
 
-const especificationRepository = new EspecificationsRepository();
+const especificationRepository = EspecificationsRepository.getInstance();
 const listEspecificationService = new ListEspecificationService(especificationRepository);
 const listEspecificationController = new ListEspecificationController(listEspecificationService);
 
