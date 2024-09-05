@@ -1,8 +1,8 @@
-import { ICreateEspecificationDTO, IEspecificationRepository } from "../Interfaces/Especification/ICreateEspecification";
+import { ICreateEspecificationDTO, IEspecificationsRepository } from "../../Interfaces/Especification/ICreateEspecification";
 
 
 class CreateEspecificationService{
-    constructor(private especificationsRepository: IEspecificationRepository){}
+    constructor(private especificationsRepository: IEspecificationsRepository){}
 
     execute({name, description}:ICreateEspecificationDTO){
         const especificationsAlreadyExists = this.especificationsRepository.findByName(name);

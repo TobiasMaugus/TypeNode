@@ -1,4 +1,4 @@
-import { ICreateCategoryDTO, ICategoriesRepository } from "../Interfaces/Category/ICreateCategory";
+import { ICreateCategoryDTO, ICategoriesRepository } from "../../Interfaces/Category/ICreateCategory";
 
 
 class CreateCategoryService{

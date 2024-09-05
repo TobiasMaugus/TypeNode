@@ -1,10 +1,10 @@
 import { request, response, Router } from "express";
 
-import EspecificationRepository from "../repositories/EspecificationsRepository";
-import {createEspecificationController} from "../controllers/Especification";
+import listEspecificationController from "../controllers/Especification/List";
+import createEspecificationController from "../controllers/Especification/Create";
 
 const especificationsRoutes = Router();
-const especificationsRepository = new EspecificationRepository();
+
 
 
 especificationsRoutes.post("/", (request, response)=>{
@@ -12,9 +12,7 @@ especificationsRoutes.post("/", (request, response)=>{
 });
 
 especificationsRoutes.get("/", (request, response)=>{
-    const all = especificationsRepository.read();
-
-    return response.json(all);
+    return listEspecificationController.handle(request, response);
 })
 
 export default especificationsRoutes;

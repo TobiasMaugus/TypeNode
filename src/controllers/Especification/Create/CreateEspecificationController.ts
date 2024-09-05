@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CreateEspecificationService from "../../services/CreateEspecificationService";
+import CreateEspecificationService from "../../../services/Especification/CreateEspecificationService";
 
 
 class CreateEspecificationController{
