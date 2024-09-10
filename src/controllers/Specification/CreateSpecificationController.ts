@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CreateSpecificationService from "../../../services/Specification/CreateSpecificationService";
+import CreateSpecificationService from "../../services/Specification/CreateSpecificationService";
 import { container } from "tsyringe";
 
 class CreateSpecificationController{
