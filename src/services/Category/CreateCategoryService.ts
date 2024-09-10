@@ -1,11 +1,16 @@
 import { ICreateCategoryDTO, ICategoriesRepository } from "../../Interfaces/Category/ICreateCategory";
+import { inject, injectable } from "tsyringe";
+import "reflect-metadata";
 
-
+@injectable()
 class CreateCategoryService{
-    constructor(private categoriesRepository: ICategoriesRepository){}
+    constructor(
+        @inject("CategoriesRepository")
+        private categoriesRepository: ICategoriesRepository
+    ){}
 
-    execute({name, description}:ICreateCategoryDTO){
-        const categoryAlreadyExists = this.categoriesRepository.findByName(name);
+    async execute({name, description}:ICreateCategoryDTO):Promise<void>{
+        const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
         if(categoryAlreadyExists){
             throw new Error("Category Already Exists!");
         }

@@ -1,39 +1,35 @@
-import Specification from "../models/Specification";
+import Specification from "../entities/Specification";
 import { ICreateSpecificationDTO, ISpecificationsRepository } from "../Interfaces/Specification/ICreateSpecification";
+import { Repository } from "typeorm";
+import AppDataSource from "../database";
 
 class SpecificationsRepository implements ISpecificationsRepository{
-    private specifications: Specification[];
-    private static INSTANCE: SpecificationsRepository;
+   
+    private repository: Repository<Specification>
 
-    private constructor(){
-        this.specifications=[]
+    constructor(){
+        this.repository = AppDataSource.getRepository(Specification); 
     }
 
-    public static getInstance():SpecificationsRepository{
-        if(!SpecificationsRepository.INSTANCE){
-            SpecificationsRepository.INSTANCE = new SpecificationsRepository();
-        }
-        return SpecificationsRepository.INSTANCE;
-    }
-
-    create({name, description}:ICreateSpecificationDTO){
-        const category= new Specification(); 
-        Object.assign(category, {
+   
+    async create({name, description}:ICreateSpecificationDTO):Promise<void>{
+        const specification = this.repository.create({
             name,
-            description,
-            created_at:new Date()
-        })
-
-        this.specifications.push(category);
+            description
+        });
+        await this.repository.save(specification);
     }
 
-    read():Specification[] {
-        return this.specifications;
+    async read():Promise<Specification[]> {
+        const specification = await this.repository.find()
+        return specification
     }
 
-    findByName(name: string):Specification{
-        const category=this.specifications.find((category)=>category.name === name);
-        return category;
+    async findByName(name: string):Promise<Specification>{
+        const specification= await this.repository.findOne({
+            where:{name}
+        });
+        return specification
     }
 
 }

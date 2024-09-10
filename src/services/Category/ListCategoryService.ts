@@ -1,5 +1,5 @@
 import { ICategoriesRepository } from "../../Interfaces/Category/ICreateCategory";
-import Category from "../../models/Category";
+import Category from "../../entities/Category";
 
 class ListCategoryService{
     constructor(private categoriesRepository:ICategoriesRepository){}

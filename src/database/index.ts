@@ -12,7 +12,7 @@ const AppDataSource = new DataSource({
     password: process.env.DB_PASSWORD || "admin",
     database: process.env.DB_DATABASE || "rentx",
     migrations: ['./src/database/migrations/**/*{.ts,.js}'],
-    entities: [],
+    entities: ['./src/entities/**/*{.ts,.js}'],
     synchronize: true,
     logging: false,
 });

@@ -1,5 +1,5 @@
 import { ISpecificationsRepository } from "../../Interfaces/Specification/ICreateSpecification";
-import Specification from "../../models/Specification";
+import Specification from "../../entities/Specification";
 
 class ListSpecificationService{
     constructor(private specificationsRepository:ISpecificationsRepository){}
