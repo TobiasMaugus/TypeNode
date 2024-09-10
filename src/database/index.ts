@@ -11,6 +11,7 @@ const AppDataSource = new DataSource({
     username: process.env.DB_USERNAME || "docker",
     password: process.env.DB_PASSWORD || "admin",
     database: process.env.DB_DATABASE || "rentx",
+    migrations: ['./src/database/migrations/**/*{.ts,.js}'],
     entities: [],
     synchronize: true,
     logging: false,
