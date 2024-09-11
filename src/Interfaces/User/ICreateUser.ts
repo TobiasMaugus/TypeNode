@@ -11,6 +11,7 @@ interface ICreateUserDTO{
 interface IUsersRepository{
     create(data:ICreateUserDTO):Promise<void>;
     read(): Promise<User[]>;
+    findByEmail(email: string): Promise<User>;
 }
 
 export{ICreateUserDTO,IUsersRepository};

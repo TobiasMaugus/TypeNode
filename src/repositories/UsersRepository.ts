@@ -10,10 +10,9 @@ class UsersRepository implements IUsersRepository{
         this.repository = AppDataSource.getRepository(User);
     }
 
-    async create({name, username, email, password, driver_license}: ICreateUserDTO): Promise<void> {
+    async create({name, email, password, driver_license}: ICreateUserDTO): Promise<void> {
         const user = this.repository.create({
             name, 
-            username, 
             email, 
             password, 
             driver_license
@@ -23,6 +22,12 @@ class UsersRepository implements IUsersRepository{
     }
     read(): Promise<User[]> {
         throw new Error("Method not implemented.");
+    }
+    async findByEmail(email: string): Promise<User> {
+        const category= await this.repository.findOne({
+            where:{email}
+        });
+        return category;
     }
 }
 
