@@ -7,8 +7,8 @@ class CreateSpecificationService{
         @inject("SpecificationsRepository")
         private specificationsRepository: ISpecificationsRepository){}
 
-    execute({name, description}:ICreateSpecificationDTO){
-        const specificationsAlreadyExists = this.specificationsRepository.findByName(name);
+    async execute({name, description}:ICreateSpecificationDTO):Promise<void>{
+        const specificationsAlreadyExists = await this.specificationsRepository.findByName(name);
         if(specificationsAlreadyExists){
             throw new Error("Category Already Exists!");
         }

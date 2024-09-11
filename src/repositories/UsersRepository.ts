@@ -3,7 +3,7 @@ import User from "../entities/User";
 import { ICreateUserDTO, IUsersRepository } from "../Interfaces/User/ICreateUser";
 import AppDataSource from "../database";
 
-class UserRepository implements IUsersRepository{
+class UsersRepository implements IUsersRepository{
     private repository: Repository<User>;
 
     constructor(){
@@ -26,4 +26,4 @@ class UserRepository implements IUsersRepository{
     }
 }
 
-export default UserRepository;
+export default UsersRepository;
