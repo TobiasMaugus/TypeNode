@@ -58,6 +58,82 @@
                     }
                 }
             }
+        },
+        "/categories/import":{
+            "post":{
+                "tags":["Category"],
+                "summary":"Upload a new Category",
+                "description":"Upload a new Category",
+                "requestBody":{
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "file":{
+                                        "type":"string",
+                                        "format":"binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{"description": "Created"},
+                    "500":{"description": "Category already exists!"}
+                }
+            }
+        },
+        "/specifications": {
+            "post":{
+                "tags":["Specification"],
+                "summary":"Create a Specification",
+                "description":"Create a new Specification",
+                "requestBody":{
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{"type":"string"},
+                                    "description":{"type":"string"}
+                                },
+                                "example":{
+                                    "name": "Specification name",
+                                    "description": "Description sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{"description": "Created"},
+                    "500":{"description": "Specification already exists!"}
+                }
+            },
+            "get":{
+                "tags":["Specification"],
+                "summary": "List Specifications",
+                "description": "List All Specifications",
+                "responses":{
+                    "200":{"description":"Success"},
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "array",
+                                "items":{
+                                    "type":"object",
+                                    "properties":{
+                                        "name":{"type":"string"},
+                                        "description":{"type":"string"}
+                                    }
+                                }
+                            }
+                        }    
+                    }
+                }
+            }    
         }
     }
 }
