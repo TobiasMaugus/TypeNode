@@ -2,12 +2,13 @@ import { Request, Response, NextFunction } from "express";
 import { verify as jwtverify } from "jsonwebtoken";
 import IPayload from "../Interfaces/Middleware/IPayload";
 import UsersRepository from "../repositories/UsersRepository";
+import AppError from "../errors/AppError";
 
 export async function ensureAuthenticated(request:Request, response:Response, next:NextFunction) {
     const authHeader = request.headers.authorization;
 
     if(!authHeader){
-        throw new Error("Token Missing!");
+        throw new AppError("User does not exists", 401);
     }
 
     //Bearer dnausd12enu123123ds920u31 (Padrao eh: Bearer espaco token)
@@ -19,11 +20,11 @@ export async function ensureAuthenticated(request:Request, response:Response, ne
 
         const user = await usersRepository.findById(user_id);
         if(!user){
-            throw new Error("User does not exists");
+            throw new AppError("User does not exists", 401);
         }
 
         next();
     }catch{
-        throw new Error("Invalid token!");
+        throw new AppError("User does not exists", 401);
     }
 }

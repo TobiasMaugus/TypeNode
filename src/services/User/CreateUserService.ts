@@ -1,6 +1,7 @@
 import {inject, injectable} from "tsyringe";
 import { ICreateUserDTO, IUsersRepository } from "../../Interfaces/User/ICreateUser";
 import argon2 from "argon2";
+import AppError from "../../errors/AppError";
 
 @injectable()
 class CreateUserService{
@@ -12,7 +13,7 @@ class CreateUserService{
 
         const userAlreadyExists = await this.usersRepository.findByEmail(email);
         if(userAlreadyExists){
-            throw new Error("Category Already Exists!");
+            throw new AppError("Category Already Exists!");
         }
 
         const hash = await argon2.hash(password);

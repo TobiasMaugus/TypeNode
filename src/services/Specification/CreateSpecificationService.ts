@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { ICreateSpecificationDTO, ISpecificationsRepository } from "../../Interfaces/Specification/ICreateSpecification";
+import AppError from "../../errors/AppError";
 
 @injectable()
 class CreateSpecificationService{
@@ -10,7 +11,7 @@ class CreateSpecificationService{
     async execute({name, description}:ICreateSpecificationDTO):Promise<void>{
         const specificationsAlreadyExists = await this.specificationsRepository.findByName(name);
         if(specificationsAlreadyExists){
-            throw new Error("Category Already Exists!");
+            throw new AppError("Category Already Exists!");
         }
         this.specificationsRepository.create({name, description});    
     }

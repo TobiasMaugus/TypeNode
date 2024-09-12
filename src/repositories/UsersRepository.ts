@@ -2,6 +2,7 @@ import { Repository } from "typeorm";
 import User from "../entities/User";
 import { ICreateUserDTO, IUsersRepository } from "../Interfaces/User/ICreateUser";
 import AppDataSource from "../database";
+import AppError from "../errors/AppError";
 
 class UsersRepository implements IUsersRepository{
     private repository: Repository<User>;
@@ -21,7 +22,7 @@ class UsersRepository implements IUsersRepository{
         await this.repository.save(user);
     }
     read(): Promise<User[]> {
-        throw new Error("Method not implemented.");
+        throw new AppError("Method not implemented.");
     }
     async findByEmail(email: string): Promise<User> {
         const category= await this.repository.findOne({

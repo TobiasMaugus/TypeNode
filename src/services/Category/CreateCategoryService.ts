@@ -1,6 +1,7 @@
 import { ICreateCategoryDTO, ICategoriesRepository } from "../../Interfaces/Category/ICreateCategory";
 import { inject, injectable } from "tsyringe";
 import "reflect-metadata";
+import AppError from "../../errors/AppError";
 
 @injectable()
 class CreateCategoryService{
@@ -12,7 +13,7 @@ class CreateCategoryService{
     async execute({name, description}:ICreateCategoryDTO):Promise<void>{
         const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
         if(categoryAlreadyExists){
-            throw new Error("Category Already Exists!");
+            throw new AppError("Category Already Exists!");
         }
         this.categoriesRepository.create({name, description});    
     }

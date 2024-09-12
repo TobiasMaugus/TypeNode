@@ -3,6 +3,7 @@ import {IRequestUser, IResponseUser} from "../../Interfaces/User/IAuthenticateUs
 import { IUsersRepository } from "../../Interfaces/User/ICreateUser";
 import {verify as argon2verify} from "argon2";
 import {sign} from "jsonwebtoken";
+import AppError from "../../errors/AppError";
 
 @injectable()
 class AuthenticateUserService{
@@ -14,12 +15,12 @@ class AuthenticateUserService{
 
         const user = await this.usersRepository.findByEmail(email);
         if(!user){
-            throw new Error("email or password incorrect!"); 
+            throw new AppError("email or password incorrect!"); 
         }
 
         const passwordMatch = await argon2verify(user.password, password);
         if(!passwordMatch){
-            throw new Error("email or password incorrect!"); 
+            throw new AppError("email or password incorrect!"); 
         }
 
         const token = sign({}, "8f64e180759b4572ddd25dc6e2eede91",{
