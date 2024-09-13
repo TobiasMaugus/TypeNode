@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import CreateCategoryService from "./CreateCategoryService";
-import CategoriesRepositoryInMemory from "../../in-memory/CategoriesRepositoryIM";
+import CategoriesRepositoryInMemory from "../../tests/in-memory/CategoriesRepositoryIM";
 import AppError from "../../errors/AppError";
 
 let createCategoryService: CreateCategoryService;

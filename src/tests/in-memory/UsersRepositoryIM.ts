@@ -1,6 +1,6 @@
-    import User from "../entities/User";
-    import { ICreateUserDTO, IUsersRepository } from "../Interfaces/User/ICreateUser";
-    import AppError from "../errors/AppError";
+    import User from "../../entities/User";
+    import { ICreateUserDTO, IUsersRepository } from "../../Interfaces/User/ICreateUser";
+    import AppError from "../../errors/AppError";
 
     class UsersRepositoryInMemory implements IUsersRepository{
         users: User[] = []
