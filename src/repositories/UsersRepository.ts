@@ -2,7 +2,7 @@ import { Repository } from "typeorm";
 import User from "../entities/User";
 import { ICreateUserDTO, IUsersRepository } from "../Interfaces/User/ICreateUser";
 import AppDataSource from "../database";
-import AppError from "../errors/AppError";
+import AppError from "../shared/errors/AppError";
 
 class UsersRepository implements IUsersRepository{
     private repository: Repository<User>;

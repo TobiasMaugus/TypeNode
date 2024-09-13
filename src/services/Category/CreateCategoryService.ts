@@ -1,7 +1,7 @@
 import { ICreateCategoryDTO, ICategoriesRepository } from "../../Interfaces/Category/ICreateCategory";
 import { inject, injectable } from "tsyringe";
 import "reflect-metadata";
-import AppError from "../../errors/AppError";
+import AppError from "../../shared/errors/AppError";
 
 @injectable()
 class CreateCategoryService{

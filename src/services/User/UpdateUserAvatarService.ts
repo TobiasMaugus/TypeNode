@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import IRequestAvatarUser from "../../Interfaces/User/IAvatarUser";
 import { IUsersRepository } from "../../Interfaces/User/ICreateUser";
-import { deleteFile } from "../../utils/file";
+import { deleteFile } from "../../shared/utils/file";
 
 @injectable()
 class UpdateUserAvatarService{

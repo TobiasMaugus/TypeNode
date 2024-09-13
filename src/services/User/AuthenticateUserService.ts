@@ -3,7 +3,7 @@ import {IRequestUser, IResponseUser} from "../../Interfaces/User/IAuthenticateUs
 import { IUsersRepository } from "../../Interfaces/User/ICreateUser";
 import {verify as argon2verify} from "argon2";
 import {sign} from "jsonwebtoken";
-import AppError from "../../errors/AppError";
+import AppError from "../../shared/errors/AppError";
 
 @injectable()
 class AuthenticateUserService{

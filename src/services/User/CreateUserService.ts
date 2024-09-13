@@ -1,7 +1,7 @@
 import {inject, injectable} from "tsyringe";
 import { ICreateUserDTO, IUsersRepository } from "../../Interfaces/User/ICreateUser";
 import argon2 from "argon2";
-import AppError from "../../errors/AppError";
+import AppError from "../../shared/errors/AppError";
 
 @injectable()
 class CreateUserService{

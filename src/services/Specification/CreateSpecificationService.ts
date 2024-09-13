@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { ICreateSpecificationDTO, ISpecificationsRepository } from "../../Interfaces/Specification/ICreateSpecification";
-import AppError from "../../errors/AppError";
+import AppError from "../../shared/errors/AppError";
 
 @injectable()
 class CreateSpecificationService{

@@ -5,7 +5,7 @@ import SwaggerUi from "swagger-ui-express";
 import swaggerFile from "./swagger.json";
 import "./database";
 import "./shared/container";
-import AppError from './errors/AppError';
+import AppError from './shared/errors/AppError';
 import "express-async-errors";
 
 
