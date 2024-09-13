@@ -3,25 +3,31 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
 @Entity("users")
 class User{
-    @PrimaryColumn()
+   
+    @Column({type: 'varchar'})
     id: string;
 
-    @Column()
+   
+    @Column({type: 'varchar'})
     name: string;
 
-    @Column()
+  
+    @Column({type: 'varchar'})
     email:string;
 
-    @Column()
+    
+    @Column({type: 'varchar'})
     password:string;
 
-    @Column()
+    
+    @Column({type: 'varchar'})
     driver_license:string;
 
-    @Column()
+    
+    @Column({type: 'varchar'})
     avatar: string;
 
-    @Column()
+    @Column({type:'boolean'})
     isAdmin:boolean;
 
     @CreateDateColumn()
