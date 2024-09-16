@@ -2,11 +2,11 @@ import {injectable, inject} from "tsyringe";
 import { ICarsRepository, ICreateCarDTO } from "../../Interfaces/Car/ICreateCar";
 import AppError from "../../shared/errors/AppError";
 
-//@injectable()
+@injectable()
 class CreateCarService{
 
     constructor(
-        //@inject("CarsRepository")
+        @inject("CarsRepository")
         private carsRepository: ICarsRepository
     ){}
 

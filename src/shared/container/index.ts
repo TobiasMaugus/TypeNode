@@ -8,6 +8,8 @@ import SpecificationsRepository from "../../repositories/SpecificationsRepositor
 
 import { IUsersRepository } from "../../Interfaces/User/ICreateUser";
 import UsersRepository from "../../repositories/UsersRepository";
+import { ICarsRepository } from "../../Interfaces/Car/ICreateCar";
+import CarsRepository from "../../repositories/CarsRepository";
 
 container.registerSingleton<ICategoriesRepository>(
     "CategoriesRepository",
@@ -22,4 +24,9 @@ container.registerSingleton<ISpecificationsRepository>(
 container.registerSingleton<IUsersRepository>(
     "UsersRepository",
     UsersRepository
+);
+
+container.registerSingleton<ICarsRepository>(
+    "CarsRepository",
+    CarsRepository
 );

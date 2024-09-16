@@ -13,7 +13,7 @@ class Category{
     @Column({type: 'varchar'})
     description: string;
 
-    @CreateDateColumn({type: 'varchar'})
+    @CreateDateColumn()
     created_at: Date;
 
     constructor(){
