@@ -9,7 +9,6 @@
             const user = new User();
             Object.assign(user, {driver_license, email, name, password});
             this.users.push(user);
-            console.log(password);
 
         }
         async read(): Promise<User[]> {
