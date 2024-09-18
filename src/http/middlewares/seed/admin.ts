@@ -1,4 +1,4 @@
-import AppDataSource from "../../database";
+import AppDataSource from "../../../database";
 import { v4 } from "uuid";
 import argon2 from "argon2";
 

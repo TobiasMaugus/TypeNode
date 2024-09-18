@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import { verify as jwtverify } from "jsonwebtoken";
-import IPayload from "../Interfaces/Middleware/IPayload";
-import UsersRepository from "../repositories/UsersRepository";
-import AppError from "../shared/errors/AppError";
+import IPayload from "../../Interfaces/Middleware/IPayload";
+import UsersRepository from "../../repositories/UsersRepository";
+import AppError from "../../shared/errors/AppError";
 
 export async function ensureAuthenticated(request:Request, response:Response, next:NextFunction) {
     const authHeader = request.headers.authorization;

@@ -3,13 +3,13 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
 @Entity("specifications")
 class Specification{
-    @PrimaryColumn()
+    @PrimaryColumn({type: 'varchar'})
     id?: string;
 
-    @Column()
+    @Column({type: 'varchar'})
     name: string;
 
-    @Column()
+    @Column({type: 'varchar'})
     description: string;
 
     @CreateDateColumn()

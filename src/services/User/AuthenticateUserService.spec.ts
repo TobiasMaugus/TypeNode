@@ -1,5 +1,5 @@
 import AppError from "../../shared/errors/AppError";
-import UsersRepositoryInMemory from "../../tests/in-memory/UsersRepositoryIM";
+import UsersRepositoryInMemory from "../../repositories/in-memory/UsersRepositoryIM";
 import { ICreateUserDTO } from "../../Interfaces/User/ICreateUser";
 import AuthenticateUserService from "./AuthenticateUserService"
 import CreateUserService from "./CreateUserService";

@@ -1,9 +1,9 @@
 import { Router } from "express";
 import multer from "multer";
 
-import CreateCategoryController  from "../controllers/Category/CreateCategoryController";
-import ListCategoryController from "../controllers/Category/ListCategoryController";
-import ImportCategoryController from "../controllers/Category/ImportCategoryController";
+import CreateCategoryController  from "../../controllers/Category/CreateCategoryController";
+import ListCategoryController from "../../controllers/Category/ListCategoryController";
+import ImportCategoryController from "../../controllers/Category/ImportCategoryController";
 import { ensureAuthenticated } from "../middlewares/EnsureAuthenticated";
 import { ensureAdmin } from "../middlewares/EnsureAdmin";
 

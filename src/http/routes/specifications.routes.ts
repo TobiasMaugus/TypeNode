@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import ListSpecificationController from "../controllers/Specification/ListSpecificationController";
-import CreateSpecificationController from "../controllers/Specification/CreateSpecificationController";
+import ListSpecificationController from "../../controllers/Specification/ListSpecificationController";
+import CreateSpecificationController from "../../controllers/Specification/CreateSpecificationController";
 import { ensureAdmin } from "../middlewares/EnsureAdmin";
 import { ensureAuthenticated } from "../middlewares/EnsureAuthenticated";
 

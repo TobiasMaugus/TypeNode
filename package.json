@@ -11,7 +11,7 @@
     "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/database/index.ts",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "seed:admin": "ts-node-dev ./src/middlewares/seed/admin.ts" 
+    "seed:admin": "ts-node-dev ./src/http/middlewares/seed/admin.ts" 
   },
   "dependencies": {
     "argon2": "^0.41.1",

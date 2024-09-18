@@ -1,4 +1,4 @@
-import CarsRepositoryInMemory from "../../tests/in-memory/CarsRepositoryIM";
+import CarsRepositoryInMemory from "../../repositories/in-memory/CarsRepositoryIM";
 import ListCarsService from "./ListCarsService";
 import { container } from "tsyringe";
 

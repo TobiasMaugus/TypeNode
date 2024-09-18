@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import express, { NextFunction, Response, Request } from "express";
-import { router } from "./routes";
+import { router } from "./http/routes";
 import SwaggerUi from "swagger-ui-express";
 import swaggerFile from "./swagger.json";
 import "./database";

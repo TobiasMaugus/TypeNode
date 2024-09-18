@@ -1,8 +1,8 @@
 import { Router } from "express";
-import CreateCarController from "../controllers/Car/CreateCarController";
+import CreateCarController from "../../controllers/Car/CreateCarController";
 import { ensureAuthenticated } from "../middlewares/EnsureAuthenticated";
 import { ensureAdmin } from "../middlewares/EnsureAdmin";
-import ListCarsController from "../controllers/Car/ListCarsController";
+import ListCarsController from "../../controllers/Car/ListCarsController";
 
 const carsRoutes = Router();
 
