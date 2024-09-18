@@ -1,5 +1,6 @@
 import AppDataSource from "../database";
 import Car from "../entities/Car";
+import Specification from "../entities/Specification";
 import { ICarsRepository, ICreateCarDTO } from "../Interfaces/Car/ICreateCar";
 import { Repository } from "typeorm";
 
@@ -61,6 +62,28 @@ class CarsRepository implements ICarsRepository{
         })
         return car;
     }
+
+    async update(id: string, name: string, description: string, daily_rate: number, license_plate: string, fine_amount: number, brand: string, category_id: string, specifications: Specification[]): Promise<void> {
+        const car = await this.repository.findOne({ where: { id } });
+
+        if (!car) {
+            throw new Error("Car not found"); // Ou você pode usar um erro personalizado
+        }
+
+        // Atualizar as propriedades do carro
+        car.name = name;
+        car.description = description;
+        car.daily_rate = daily_rate;
+        car.license_plate = license_plate;
+        car.fine_amount = fine_amount;
+        car.brand = brand;
+        car.category_id = category_id;
+        car.specifications = specifications; // Se você quiser atualizar as especificações
+
+        // Salvar as alterações
+        await this.repository.save(car);
+    }
 }
+
 
 export default CarsRepository;
