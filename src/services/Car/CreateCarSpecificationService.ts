@@ -4,13 +4,13 @@ import { ICarsRepository } from "../../Interfaces/Car/ICreateCar";
 import AppError from "../../shared/errors/AppError";
 import { ISpecificationsRepository } from "../../Interfaces/Specification/ICreateSpecification";
 
-//@injectable()
+@injectable()
 class CreateCarSpecificationService{
 
     constructor(
-        //@inject("CarsRepository")
+        @inject("CarsRepository")
         private carsRepository:ICarsRepository,
-        
+        @inject("SpecificationsRepository")
         private specificationsRepository:ISpecificationsRepository
     ){}
 

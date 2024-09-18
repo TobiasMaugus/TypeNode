@@ -38,6 +38,8 @@ describe("Create Car Specification", () => {
         list.push(specificationName.id)
         list.push(specificationName2.id)
         await createCarSpecificationService.execute({ car_id: carPlate.id, specifications_id:list });
-        const cars = carsRepositoryInMemory.listAllAvailable()
+        const carPlate2 = await carsRepositoryInMemory.findByLicensePlate("AWS-8912");
+        expect(carPlate2).toHaveProperty("specifications");
+        expect(carPlate2.specifications.length).toBe(2);
     });
 });
