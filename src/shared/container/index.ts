@@ -10,6 +10,8 @@ import { IUsersRepository } from "../../Interfaces/User/ICreateUser";
 import UsersRepository from "../../repositories/UsersRepository";
 import { ICarsRepository } from "../../Interfaces/Car/ICreateCar";
 import CarsRepository from "../../repositories/CarsRepository";
+import { ICarImagesRepository } from "../../Interfaces/Car/CarImage/ICarImagesRepository";
+import CarImagesRepository from "../../repositories/CarImagesRepository";
 
 container.registerSingleton<ICategoriesRepository>(
     "CategoriesRepository",
@@ -30,3 +32,8 @@ container.registerSingleton<ICarsRepository>(
     "CarsRepository",
     CarsRepository
 );
+
+container.registerSingleton<ICarImagesRepository>(
+    "CarImagesRepository",
+    CarImagesRepository
+)
