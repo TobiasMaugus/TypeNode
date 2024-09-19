@@ -7,8 +7,8 @@ export class CreateSpecificationsCars1726589935214 implements MigrationInterface
             name:"specifications_cars",
             columns:[
                 {
-                name:"car_id",
-                type:"uuid"
+                    name:"car_id",
+                    type:"uuid"
                 },{
                     name:"specification_id",
                     type:"uuid"
