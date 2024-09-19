@@ -12,6 +12,8 @@ import { ICarsRepository } from "../../Interfaces/Car/ICreateCar";
 import CarsRepository from "../../repositories/CarsRepository";
 import { ICarImagesRepository } from "../../Interfaces/Car/CarImage/ICarImagesRepository";
 import CarImagesRepository from "../../repositories/CarImagesRepository";
+import { IRentalsRepository } from "../../Interfaces/Rental/ICreateRental";
+import RentalsRepository from "../../repositories/RentalsReposiroty";
 
 container.registerSingleton<ICategoriesRepository>(
     "CategoriesRepository",
@@ -36,4 +38,9 @@ container.registerSingleton<ICarsRepository>(
 container.registerSingleton<ICarImagesRepository>(
     "CarImagesRepository",
     CarImagesRepository
+)
+
+container.registerSingleton<IRentalsRepository>(
+    "RentalsRepository",
+    RentalsRepository
 )
