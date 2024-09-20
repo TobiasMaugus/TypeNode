@@ -1,4 +1,5 @@
 import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { v4 } from "uuid";
 
 @Entity("rentals")
 class Rental{
@@ -28,6 +29,12 @@ class Rental{
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    constructor(){
+        if(!this.id){
+            this.id=v4();
+        }
+    }
 }
 
 export default Rental
